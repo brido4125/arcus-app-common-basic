@@ -13,9 +13,10 @@ public class ArcusAnnotationAspect extends ArcusCacheAspect {
         super(arcusConfiguration);
     }
 
-    @Pointcut("execution(* arcus.app.common.basic.*ItemService.getItem(..))))")
-    public void pointcut() {}
-    @Around("pointcut()")
+    @Pointcut("execution(* arcus.app.common.basic.*ItemService.findItem(..))))")
+    public void findItem() {}
+
+    @Around("findItem()")
     public Object around(final ProceedingJoinPoint joinPoint) throws Throwable {
         return super.around(joinPoint); }
 }
